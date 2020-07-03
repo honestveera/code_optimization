@@ -2,7 +2,7 @@
 
 The best way to write a code called as code optimization. The best ways are ruby styleguide, rails styleguide, code reusability, without code duplication, without security vulnerabilities and without N+1 queries. The above each and every best ways are have some libraries.
 
-Further Details: [Code Optimization Document](https://github.com/honestveera/code_optimization/code_optimization.txt).
+Further Details: [Code Optimization Document](https://github.com/honestveera/code_optimization/blob/master/code_optimization.txt).
 
 ## Installation
 
