@@ -2,8 +2,6 @@
 
 The best way to write a code called as code optimization. The best ways are ruby styleguide, rails styleguide, code reusability, without code duplication, without security vulnerabilities and without N+1 queries. The above each and every best ways are have some libraries.
 
-Further Details: [Code Optimization Document](https://github.com/honestveera/code_optimization/blob/master/code_optimization.txt).
-
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -19,6 +17,10 @@ And then execute:
 Or install it yourself as:
 
     $ gem install code_optimization
+    
+## SETUP Details are Below
+
+[Code Optimization Document](https://github.com/honestveera/code_optimization/blob/master/code_optimization.md).
 
 ## Usage
 
@@ -32,7 +34,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/code_optimization. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/honestveera/code_optimization. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
