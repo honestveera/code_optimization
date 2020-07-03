@@ -1,8 +1,8 @@
 # CodeOptimization
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/code_optimization`. To experiment with that code, run `bin/console` for an interactive prompt.
+The best way to write a code called as code optimization. The best ways are ruby styleguide, rails styleguide, code reusability, without code duplication, without security vulnerabilities and without N+1 queries. The above each and every best ways are have some libraries.
 
-TODO: Delete this and the text above, and describe your gem
+Further Details: [Code Optimization Document](https://github.com/honestveera/code_optimization/code_optimization.txt).
 
 ## Installation
 
