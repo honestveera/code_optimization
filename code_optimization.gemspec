@@ -10,20 +10,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Honestraj Kandhasamy"]
   spec.email         = ["honestraj.it@gmail.com"]
 
-  spec.summary       = %q{TODO: CodeOptimization}
-  spec.description   = %q{TODO: About
-                          The best way to write a code called as code optimization. The best ways are ruby styleguide, rails styleguide, code reusability, without code duplication, without security vulnerabilities and without N+1 queries. The above each and every best ways are have some libraries.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{CodeOptimization}
+  spec.description   = %q{The best way to write a code called as code optimization. The best ways are ruby styleguide, rails styleguide, code reusability, without code duplication, without security vulnerabilities and without N+1 queries. The above each and every best ways are have some libraries.}
+  spec.homepage      = 'https://rubygems.org/gems/code_optimization'
   spec.license       = "MIT"
-
-  # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
-  # to allow pushing to a single host or delete this section to allow pushing to any host.
-  if spec.respond_to?(:metadata)
-    spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
-  else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
-  end
+  spec.metadata    = { "source_code_uri" => "https://github.com/honestveera/code_optimization" }
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
@@ -35,4 +26,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
+  spec.add_dependency "brakeman"
+  spec.add_dependency "bullet"
+  spec.add_dependency "rails_best_practices"
+  spec.add_dependency "rack-mini-profiler"
+  spec.add_dependency "rubocop"
+  spec.add_dependency "rubycritic"
 end
