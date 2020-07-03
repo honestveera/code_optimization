@@ -26,13 +26,6 @@ Check for trailing periods in subject................[TrailingPeriod] OK
 ⚠ All commit-msg hooks passed, but with warnings
 
 
-*************************
-SAMPLE PR
-*************************
-
-https://bitbucket.org/cymetrixcorp/revremit/pull-requests/3636/rr-4014-grouping-issue/diff
-
-
 ***************************************
 1.CODE OPTIMIZATION GEMS
 ***************************************
