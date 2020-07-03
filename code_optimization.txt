@@ -1,0 +1,213 @@
+************************************************
+OVERCOMMIT STEPS INVOLVED
+************************************************
+1.bundle install
+2.overcommit --sign
+3.git add files
+4.git commit -m "Test message"
+5.Please check below messages are coming or not
+
+************************
+Example:
+************************
+
+Running pre-commit hooks
+Analyze with RailsBestPractices..................[RailsBestPractices] OK
+Analyze with RuboCop........................................[RuboCop] OK
+✓ All pre-commit hooks passed
+Running commit-msg hooks
+Check text width..........................................[TextWidth] OK
+Check subject capitalization.....................[CapitalizedSubject] WARNING
+
+Subject should start with a capital letter
+Check subject line................................[SingleLineSubject] OK
+Check for trailing periods in subject................[TrailingPeriod] OK
+ 
+⚠ All commit-msg hooks passed, but with warnings
+
+
+*************************
+SAMPLE PR
+*************************
+
+https://bitbucket.org/cymetrixcorp/revremit/pull-requests/3636/rr-4014-grouping-issue/diff
+
+
+***************************************
+1.CODE OPTIMIZATION GEMS
+***************************************
+
+group :development do
+  gem 'brakeman' # Security Analysis Tool
+  gem 'bullet' # Find N+1 Queries
+  gem 'overcommit' # Manage and configure Git hooks.
+  gem 'rails_best_practices' # Rails Code Analysis Tool
+  gem 'rack-mini-profiler' #Query Loading
+  gem 'rubocop' # Ruby Static Code Analyser #https://github.com/rubocop-hq/rubocop/edit/master/config/default.yml
+  gem 'rubycritic' # Code Reusability and Find Code duplications#
+end
+
+***************************************
+GEMS COMMANDS
+***************************************
+
+#############################################
+1.RUBOCOP(STATIC CODE ANALYSIS)
+#############################################
+1.rubocop . (It will scan whole projects *.rb)
+2.rubocop file_path (Analyse only particular .rb file).
+3.How to auto correct particular file?
+There are two ways to auto correct .rb file.
+
+1.rubocop file_path ----safe-auto-correct
+2.Attach rubocop-auto-correct package in to ATOM
+
+************************
+INSTALATION
+************************
+I.apm rubocop-auto-correct
+II. Restart your editor.
+III. Open .rb -> Right Click -> Click -> RuboCop Auto Correct
+
+#############################################
+2.BRAKEMAN(SECURITY SCANNER FOR ROR APPLICATION)
+#############################################
+brakeman
+brakeman -o output_filename.html [It will return output for CSV,JSON OR HTML]
+brakeman -t SQL,ValidationRegex [Only run a certain set of tests]
+brakeman -x DefaultRoutes,Redirect [Can skip particular validation]
+brakeman --skip-files file1,/path1/,path2/ [Do skip certain file OR Directory]
+brakeman --compare old_report.json [We can compare old results with new results]
+Warning Types: https://github.com/presidentbeef/brakeman/tree/master/docs/warning_types
+
+#############################################
+EXAMPLE BRAKEMAN COMPARISON RESULT
+#############################################
+
+[honestraj.kandhasamy@NITRVSP500LX revremit]$ brakeman -t CrossSiteScripting --compare old_report.json
+Loading scanner...
+Processing application in /home/user/revremit_project_details/bitbucket/revremit
+Processing gems...
+[Notice] Detected Rails 5 application
+Processing configuration...
+[Notice] Escaping HTML by default
+Parsing files...
+Processing initializers...
+Processing libs...ssed
+Processing routes...          
+Processing templates...       
+Processing data flow in templates...
+Processing models...          
+Processing controllers...     
+Processing data flow in controllers...
+Indexing call sites...        
+Running checks in parallel...
+ - CheckCrossSiteScripting
+Checks finished, collecting results...
+{
+  "new": [
+
+  ],
+  "fixed": [
+
+  ]
+}
+
+
+#############################################
+LOT OF CHECKS IS THERE
+#############################################
+
+BasicAuth, BasicAuthTimingAttack, ContentTag, CookieSerialization, CreateWith, CrossSiteScripting, DefaultRoutes, Deserialize, DetailedExceptions, DigestDoS, DynamicFinders, EscapeFunction, Evaluation, Execute, FileAccess, FileDisclosure, FilterSkipping, ForgerySetting, HeaderDoS, I18nXSS, JRubyXML, JSONEncoding, JSONParsing, LinkTo, LinkToHref, MailTo, MassAssignment, MimeTypeDoS, ModelAttrAccessible, ModelAttributes, ModelSerialize, NestedAttributes, NestedAttributesBypass, NumberToCurrency, PermitAttributes, QuoteTableName, Redirect, RegexDoS, Render, RenderDoS, RenderInline, ResponseSplitting, RouteDoS, SQL, SQLCVEs, SSLVerify, SafeBufferManipulation, SanitizeMethods, SelectTag, SelectVulnerability, Send, SendFile, SessionManipulation, SessionSettings, SimpleFormat, SingleQuotes, SkipBeforeFilter, SprocketsPathTraversal, StripTags, SymbolDoSCVE, TranslateBug, UnsafeReflection, ValidationRegex, WithoutProtection, XMLDoS, YAMLParsing
+
+Example:
+I can skip or particularly run one or multiple checks
+
+
+##############################
+3.BULLET(AVOID N+1 QUERIES)
+##############################
+Help to kill N+1 queries and unused eager loading
+
+Bullet won't do ANYTHING unless you tell it to explicitly. 
+Append to config/environments/development.rb initializer with the following code:
+
+**************************
+Eager Loading
+**************************
+
+users = User.find(:all, :include => :friends)
+
+**************************
+Lazy Loading
+**************************
+users = User.all
+      
+users.each do |user|
+friend = Friend.find_by(user_id:user.id)
+end
+
+**************************
+CONFIGURATION
+**************************
+config.after_initialize do
+  Bullet.enable = true
+  Bullet.alert = true
+  Bullet.bullet_logger = true
+  Bullet.console = true
+  Bullet.growl = true
+  Bullet.rails_logger = true
+end
+
+##############################
+4.OVERCOMMIT
+##############################
+OVERCOMMIT is a tool manage and configure git hooks
+
+********************************
+Built-In Hooks
+********************************
+CommitMsg
+PostCheckout
+PostCommit
+PostMerge
+PostRewrite
+PreCommit
+PrePush
+PreRebase
+
+********************
+Commands
+********************
+overcommit --sign
+overcommit --run - It will run defaultly precommit config
+
+##############################
+5.Rack Mini profiler
+##############################
+Middleware that displays speed badge for every html page
+Designed to work both in production and in development.
+
+##############################
+6.Rails Best Practises
+##############################
+Rails Code Analysis Tool.
+
+********************
+Commands
+********************
+rails_best_practises --help
+rails_best_practises .
+
+##############################
+7.RubyCritic
+##############################
+The Ruby Code quality reporter
+Code Reusability and Find Code duplications.This is a combination of Flay,Flog and Reek.
+
+Flay - Flay analyzes code for structural similarities.
+Flog - Flog reports the most tortured code in an easy to read pain report
+
+
+
+
