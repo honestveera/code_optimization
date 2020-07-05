@@ -2,20 +2,6 @@
 
 The best way to write a code called as code optimization. The best ways is ruby styleguide, rails styleguide, code reusability, without code duplication, without security vulnerabilities and without N+1 queries. The above each and every best ways are have some libraries.
 
-# Installation
-
-Using Bundler:
-
-    group :development do
-      gem 'brakeman' # Security Analysis Tool
-      gem 'bullet' # Find N+1 Queries
-      gem 'overcommit' # Manage and configure Git hooks.
-      gem 'rails_best_practices' # Rails Code Analysis Tool
-      gem 'rack-mini-profiler' #Query Loading
-      gem 'rubocop' # Ruby Static Code Analyser #https://github.com/rubocop-hq/rubocop/edit/master/config/default.yml
-      gem 'rubycritic' # Code Reusability and Find Code duplications#
-    end
-
 # OVERCOMMIT(Git Hook Manager)
 
 1.  bundle install
