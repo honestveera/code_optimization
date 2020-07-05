@@ -2,6 +2,12 @@ PATH
   remote: .
   specs:
     code_optimization (0.1.1)
+      brakeman
+      bullet
+      rack-mini-profiler
+      rails_best_practices
+      rubocop
+      rubycritic
 
 GEM
   remote: https://rubygems.org/
@@ -69,7 +75,7 @@ GEM
       require_all (~> 3.0)
       ruby-progressbar
     rainbow (3.0.0)
-    rake (10.5.0)
+    rake (13.0.1)
     reek (6.0.1)
       kwalify (~> 0.7.0)
       parser (>= 2.5.0.0, < 2.8, != 2.5.1.1)
@@ -138,16 +144,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  brakeman
-  bullet
   bundler (~> 1.16)
   code_optimization!
-  rack-mini-profiler
-  rails_best_practices
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.0)
-  rubocop
-  rubycritic
 
 BUNDLED WITH
    1.17.2
